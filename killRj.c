@@ -20,13 +20,13 @@ int find_PID(char *process_name)
     // 刷新tasklist
     char cmd[30] = "tasklist | findstr ";
     strcat(cmd, process_name);
-    strcat(cmd, " > C:/Users/Danny/Downloads/tasklist.txt");
+    strcat(cmd, " > tasklist.txt");
     system(cmd);
 
     // 讀取tasklist
     FILE *file;
     char buffer[100];
-    file = fopen("C:/Users/Danny/Downloads/tasklist.txt", "r");
+    file = fopen("tasklist.txt", "r");
 
     fgets(buffer, sizeof(buffer), file);
     char *pid = strstr(buffer, "exe");
